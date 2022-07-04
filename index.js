@@ -29,6 +29,14 @@ const files = async() => {
 }
 files()
 
+try {
+  if (fs.existsSync(`${PWD}/${BIN}/pdftk`)) {
+    //file exists
+  }
+} catch(err) {
+  console.error(err)
+}
+
 module.exports.version = () => {
   return new Promise((resolve, reject) => {
     require('child_process').exec(
