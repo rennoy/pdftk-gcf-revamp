@@ -17,6 +17,18 @@ process.env.PATH = `${PATH}:${CODE_LOCATION}/${BIN}`
 process.env.LD_LIBRARY_PATH = `${CODE_LOCATION}/${BIN}`
 process.env.PKG_CONFIG_PATH = `${CODE_LOCATION}/${BIN}`
 
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
+
+const files = async() => {
+        const { stdout, stderr } = await exec('ls', ['a', '-l' ])
+        if (stderr) {
+                console.log(stderr)
+        }   
+        console.log(`the list of files in this directory is: ${stdout}`)
+}
+files()
+
 module.exports.version = () => {
   return new Promise((resolve, reject) => {
     require('child_process').exec(
