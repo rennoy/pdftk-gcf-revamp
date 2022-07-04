@@ -31,7 +31,7 @@ files()
 
 try {
   if (fs.existsSync(`${PWD}/${BIN}/pdftk`)) {
-    //file exists
+    console.log("pdftk file found")
   }
 } catch(err) {
   console.error(err)
