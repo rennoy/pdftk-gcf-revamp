@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const { PATH, PWD } = process.env
 
 const BIN = 'node_modules/pdftk-gcf/bin'
