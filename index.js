@@ -22,8 +22,12 @@ process.env.PKG_CONFIG_PATH = `${PWD}/${BIN}`
 try {
   if (fs.existsSync(`${PWD}/${BIN}/pdftk`)) {
     console.log("pdftk file found")
-    if (fs.canExecute(`${PWD}/${BIN}/pdftk`)) {
-      console.log("pdftk can execute")
+    
+    try {
+      fs.accessSync('etc/passwd', fs.constants.X_OK);
+      console.log('can execute');
+    } catch (err) {
+      console.error('no access!');
     }
   }
 } catch(err) {
