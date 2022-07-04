@@ -4,7 +4,7 @@ const BIN = 'node_modules/pdftk-gcf/bin'
 
 console.log("PATH")
 console.log(`${PATH}`)
-console.log("CODE_LOCATION")
+console.log("PWD")
 console.log(`${PWD}`)
 console.log("new PATH")
 console.log(`${PATH}:${PWD}/${BIN}`)
