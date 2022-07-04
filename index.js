@@ -1,21 +1,21 @@
-const { PATH, CODE_LOCATION } = process.env
+const { PATH, PWD } = process.env
 
 const BIN = 'node_modules/pdftk-gcf/bin'
 
 console.log("PATH")
 console.log(`${PATH}`)
 console.log("CODE_LOCATION")
-console.log(`${CODE_LOCATION}`)
+console.log(`${PWD}`)
 console.log("new PATH")
-console.log(`${PATH}:${CODE_LOCATION}/${BIN}`)
+console.log(`${PATH}:${PWD}/${BIN}`)
 console.log("LD_LIBRARY_PATH")
-console.log(`${CODE_LOCATION}/${BIN}`)
+console.log(`${PWD}/${BIN}`)
 console.log("PKG_CONFIG_PATH")
-console.log(`${CODE_LOCATION}/${BIN}`)
+console.log(`${PWD}/${BIN}`)
 
-process.env.PATH = `${PATH}:${CODE_LOCATION}/${BIN}`
-process.env.LD_LIBRARY_PATH = `${CODE_LOCATION}/${BIN}`
-process.env.PKG_CONFIG_PATH = `${CODE_LOCATION}/${BIN}`
+process.env.PATH = `${PATH}:${PWD}/${BIN}`
+process.env.LD_LIBRARY_PATH = `${PWD}/${BIN}`
+process.env.PKG_CONFIG_PATH = `${PWD}/${BIN}`
 
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
