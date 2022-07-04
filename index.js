@@ -19,21 +19,12 @@ process.env.PATH = `${PATH}:${PWD}/${BIN}`
 process.env.LD_LIBRARY_PATH = `${PWD}/${BIN}`
 process.env.PKG_CONFIG_PATH = `${PWD}/${BIN}`
 
-const util = require('util')
-const exec = util.promisify(require('child_process').exec)
-
-const files = async() => {
-        const { stdout, stderr } = await exec('ls', ['a', '-l' ])
-        if (stderr) {
-                console.log(stderr)
-        }   
-        console.log(`the list of files in this directory is: ${stdout}`)
-}
-files()
-
 try {
   if (fs.existsSync(`${PWD}/${BIN}/pdftk`)) {
     console.log("pdftk file found")
+    if (fs.canExecute(`${PWD}/${BIN}/pdftk`)) {
+      console.log("pdftk can execute")
+    }
   }
 } catch(err) {
   console.error(err)
