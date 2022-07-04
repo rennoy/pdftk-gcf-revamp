@@ -2,8 +2,11 @@ const { PATH, CODE_LOCATION } = process.env
 
 const BIN = 'node_modules/pdftk-gcf/bin'
 
-console.log("pointers")
+console.log("PATH")
 console.log(`${PATH}:${CODE_LOCATION}/${BIN}`)
+console.log("LD_LIBRARY_PATH")
+console.log(`${CODE_LOCATION}/${BIN}`)
+console.log("PKG_CONFIG_PATH")
 console.log(`${CODE_LOCATION}/${BIN}`)
 
 process.env.PATH = `${PATH}:${CODE_LOCATION}/${BIN}`
