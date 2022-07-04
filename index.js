@@ -42,7 +42,7 @@ try {
 module.exports.version = () => {
   return new Promise((resolve, reject) => {
     require('child_process').exec(
-      `${PWD}/${BIN}/pdftk --version`,
+      `${process.env.PATH}/pdftk --version`,
       (error, stdout, stderr) => {
         if (error) reject(error)
         else resolve(stdout)
