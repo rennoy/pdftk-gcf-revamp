@@ -14,8 +14,8 @@ console.log("PKG_CONFIG_PATH")
 console.log(`${PWD}/${BIN}`)
 
 process.env.PATH = `${PATH}:${PWD}/${BIN}`
-process.env.LD_LIBRARY_PATH = `${PWD}/${BIN}`
-process.env.PKG_CONFIG_PATH = `${PWD}/${BIN}`
+//process.env.LD_LIBRARY_PATH = `${PWD}/${BIN}`
+//process.env.PKG_CONFIG_PATH = `${PWD}/${BIN}`
 
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
