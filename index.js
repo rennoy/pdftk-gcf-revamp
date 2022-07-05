@@ -27,8 +27,16 @@ try {
       fs.accessSync('etc/passwd', fs.constants.X_OK);
       console.log('can execute');
     } catch (err) {
-      console.error('no access!');
+      console.error('no executable access!');
     }
+
+    try {
+      fs.accessSync('etc/passwd', fs.constants.R_OK);
+      console.log('can read');
+    } catch (err) {
+      console.error('no read access!');
+    }
+    
   }
 } catch(err) {
   console.error(err)
