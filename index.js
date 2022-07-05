@@ -28,7 +28,7 @@ try {
       console.log('can execute');
     } catch (err) {
       console.error('no executable access!');
-    }
+    } 
 
     try {
       fs.accessSync('etc/passwd', fs.constants.R_OK);
